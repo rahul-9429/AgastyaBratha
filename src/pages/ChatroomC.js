@@ -220,7 +220,7 @@ function Chatroom({ user, ip }) {
       <div className="outer">
         {/* ------------------top area --------------------------------*/}
         <div className="logo">
-          <img src={logo} alt="Logo" height="70vh" />
+         <Link to={'/'}><img src={logo} alt="Logo" height="70vh" /></Link>
         </div>
         {/* -------------------chat area_----------------- */}
         <div className="chat">
