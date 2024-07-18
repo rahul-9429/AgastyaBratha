@@ -440,7 +440,7 @@ body {
   width: 100%;
 }
 .type-eff {
-  margin-top: 0%;
+  margin-top: 10%;
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-size: 5rem;
@@ -984,14 +984,15 @@ a {
   opacity: 0.75;
 }
 .aga-community {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  min-height: fit-content;
+
+  /* min-height: fit-content; */
   width: 100%;
+  /* border:2px solid red; */
   align-items: center;
+  text-align: center;
   justify-content: center;
-  padding: 10rem 0 10rem 0;
+  padding: 5rem 0 5rem 0;
+  margin-top: 1rem;
 }
 .aga-com {
   width: 100%;
@@ -1014,8 +1015,11 @@ a {
 }
 .About-sec {
   color: #c3c0c0;
+  background-color: #000000;
+
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  margin-top:2rem;
   height: auto;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1001%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(0%2c 0%2c 0%2c 1)'%3e%3c/rect%3e%3cpath d='M226.69 601.9C400.01 601.6 558.69 500.12 912.08 497.48 1265.46 494.84 1415.88 260.15 1597.46 256.68' stroke='rgba(29%2c 54%2c 70%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M167.05 581.16C341.72 579.76 487.63 412.07 843.54 406.46 1199.45 400.85 1338.11 142.52 1520.03 137.66' stroke='rgba(29%2c 54%2c 70%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M472.09 614.48C605.86 614.38 726.67 557.05 1003.72 553.83 1280.77 550.61 1388.4 308.1 1535.35 301.83' stroke='rgba(29%2c 54%2c 70%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M709.92 610.21C845.43 587.05 914.34 254.08 1128.11 253.1 1341.88 252.12 1432.62 428.58 1546.3 432.3' stroke='rgba(29%2c 54%2c 70%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M675.17 565.84C774.82 545.99 724.93 302.06 974.2 290.6 1223.47 279.14 1417.33 129.64 1572.25 128.2' stroke='rgba(29%2c 54%2c 70%2c 1)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1001'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -1024,6 +1028,8 @@ a {
   display: flex;
   flex-direction: row;
   padding-left: 4rem;
+  background-color: #000000;
+  
 }
 .about1 {
   height: auto;
@@ -1149,23 +1155,35 @@ textarea {
 .aga-mean-jagu1 {
   display: flex;
   width: 45%;
+  font-size: large;
+  text-align: center;
   /* border: 2px solid yellow; */
 }
 .aga-mean-jagu2 {
   display: flex;
   width: 45%;
-
+  font-size: large;
+  text-align: center;
   /* border:2px solid white; */
-  text-wrap: nowrap;
+  text-wrap: wrap;
   margin: auto;
 }
-
+/* .aga-mean-jaggu  */
 @media only screen and (max-width: 600px) {
   .aga-mean-jagu {
     display: flex;
     flex-direction: column;
   }
-
+  .aga-mean-jagu1 {
+    width: 100%;
+    /* background-color: red; */
+  }
+  .aga-mean-jagu2 {
+width: 100%;
+/* background-color: red; */
+font-size: 15px;
+text-wrap: nowrap;
+}
   .van-hid {
     display: flex;
     justify-content: center;
@@ -1348,8 +1366,8 @@ textarea {
   }
   nav .ham-cross {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 0rem;
+    right: 0rem;
   }
   .ham-cross,
   .ham-menu,
@@ -1369,8 +1387,6 @@ textarea {
   }
   .type-eff {
     font-size: 2.5rem;
-    align-items: center;
-    justify-content: center;
   }
   .admin-ty,
   .admin-text {

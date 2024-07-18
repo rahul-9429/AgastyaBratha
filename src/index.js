@@ -11,7 +11,7 @@ import Vserver from'./pages/Vserver';
 import UserRoom from "./pages/UserRoom.js";
 import Termsc from "./pages/Termsc.js";
 import Rahul from "./pages/Founder.js";
-import Test from "./pages/Rahul.jsx"
+// import Test from "./pages/Rahul.jsx"
 // import reportWebVitals from './reportWebVitals';
 
 
@@ -28,7 +28,7 @@ function App(){
         <Route path="/room/:roomName" element={<UserRoom />} />
         <Route path="/term&conditions" element={<Termsc/>} />
         <Route path="/Team" element={<Rahul/>}/>
-        <Route path="/rahul" element={<Test/>}/>
+        {/* <Route path="/rahul" element={<Test/>}/> */}
       </Routes>
     </BrowserRouter>
   )
