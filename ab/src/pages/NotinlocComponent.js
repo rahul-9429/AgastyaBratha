@@ -1,5 +1,6 @@
 import './App.css';
-import geek from '../images/geek.jpg';
+import geek from '../images/geekgodcroped.jpg';
+import geeky from '../images/geek.jpg';
 import tape from '../images/tape.jpg';
 import logo from '../images/logoo.png';
 
@@ -8,7 +9,7 @@ function NotinlocComponent(){
       <>
       <img src={logo} alt="Logo" className='aga-logo ' />
       <section className='notinloc'>
-          <img src={geek} alt="geekgod_modernart" className='geekgod'/> 
+          <img src={geeky} alt="geekgod_modernart" className='geekgod'/> 
           <sapn className="notinloc-msg">
             <h2>Opps! Looks like your currently not in college primises <small>(VIIT or VIEW)</small></h2>
             <img src={geek} alt="geekgod_modernart" className='geekgod_mobile'/> 

@@ -4,10 +4,10 @@ import { getFirestore, collection, addDoc, orderBy, query, serverTimestamp ,wher
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInAnonymously as signInAnonymouslyFirebase } from 'firebase/auth';
 import './App.css';
-import logo from '../images/logoo.png';
-import pic from '../images/starry.jpg';
-import light from '../images/agalogoedited.png';
-import chatbg1 from '../images/chat_bg1.jpg';
+import { Link } from "react-router-dom";
+import logo from '../images/agalogoedited.png';
+import light from '../images/light.png';
+import starryimg from '../images/starry.jpg';
 // import tape from './tape.jpg';
 // import './CurrentUsers.js';
 import { onSnapshot } from 'firebase/firestore';
@@ -72,7 +72,7 @@ function Signintochat({ setUser }) {
                
               
               </div>
-          <img src={pic} alt="starry" className='starry-img'   />
+          <img src={starryimg} alt="starry" className='starry-img'   />
           
           <p className='starry-text'>Chat</p></div>
           <p className='starry-text-mobile'>Let's Chat  </p>
@@ -81,7 +81,7 @@ function Signintochat({ setUser }) {
         <input   type='checkbox' id='agree'  className='styled-checkbox'   
           checked={isChecked}
           onChange={thunderAnimation}/>
-        <label for='agree'>  I agree all <a href="">Terms & Conditions.</a> </label>
+        <span for='agree'>  I agree all <Link to="/term&conditions"><u>Terms & Conditions.</u></Link></span>
        
         </div>
         <button className='chat-anony' onClick={signInAnonymously}></button>
@@ -99,33 +99,6 @@ function Signintochat({ setUser }) {
   );
 }
 
-// function Notinloc(){
-//   return(
-//     <>
-//     <img src={logo} alt="Logo" className='aga-logo ' />
-//     <section className='notinloc'>
-//         <img src={geek} alt="geekgod_modernart" className='geekgod'/> 
-//         <sapn className="notinloc-msg">
-//           <h2>Opps! Looks like your currently not in college primises <small>(VIIT or VIEW)</small></h2>
-//           <img src={geek} alt="geekgod_modernart" className='geekgod_mobile'/> 
-//           <p>We deeply value the privacy and security of our users.To protect the community we only allow acess to users who are in specified location</p>
-//           <h3>Troubleshooting :)</h3>
-//            <p>I'm in college but still facing this issue?</p>
-//            <p>Users mostly encounter this issue because "Location is not enabled" from the user end.<br/>
-//            <ul className='notinloc-li'>
-//             <li>Kindly enable location and try again</li>
-//             <li>Wait until the page is completely loaded</li>
-//             <li>Check your internet connection</li>
-//             <li>Didn't work? <a href="mailto:project.suppourt.rahul@gmail.com&subject=Hrlp%20agastya-bratha"> Contact suppourt</a></li>
-//            </ul>
-//             </p>
-//             <h4><u>We never save your location.It is only used for authentication.</u></h4>
-//              <img src={tape} className='tape'/>
-//         </sapn>
-//     </section>
-//    </>
-//   );
-// }
 function Chatroom({ user, ip }) {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
@@ -133,20 +106,6 @@ function Chatroom({ user, ip }) {
   const secretKey = 'rahulsaivjy9420';
   const banana = useRef();
   const focus_type = useRef(null);
-  // useEffect(() => {
-  //   const q = query(collection(db, "messages"), orderBy("timestamp"));
-  //   const unsubscribe = onSnapshot(q, snapshot => {
-  //     setMessages(snapshot.docs.map(doc => ({
-  //       id: doc.id,
-  //       data: doc.data()
-  //     })));
-  //   });
-  //   return unsubscribe;
-  // }, [db]);
-  
-  
-  
-
   
   useEffect(() => {
    
@@ -156,8 +115,6 @@ function Chatroom({ user, ip }) {
         const decryptedMsgs = messages.map(msg => {
           try {
             const decryptedText = CryptoJS.AES.decrypt(msg.data.text, secretKey).toString(CryptoJS.enc.Utf8);
-            
-          
             return { ...msg, decryptedText };
           } catch (error) {
             return { ...msg, decryptedText: 'Waiting for this message' };
@@ -184,7 +141,13 @@ function Chatroom({ user, ip }) {
     });
     return unsubscribe;
   }, [db]);
-  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 || 12;  
+
+    const currentTime = `${formattedHours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
   const sendMessage = async () => {
     if (!user) {
       console.log("User not logged in. Message not sent.");
@@ -196,17 +159,10 @@ function Chatroom({ user, ip }) {
     }
     const handleKeyDown = (event) => {
       if (event.key === 'Enter') {
-        // Call sendMessage function when Enter key is pressed
         sendMessage();
       }
     };
-  
-    
-      
       const encrypted = CryptoJS.AES.encrypt(newMessage, secretKey).toString();
-       
-    
-    // Send the message
     await addDoc(collection(db, "messages"), {
       uid: user.uid,
       ip_address: ip,
@@ -224,16 +180,20 @@ function Chatroom({ user, ip }) {
 useEffect(()=>{
   focus_type.current.focus(); 
 },[focus_type])
- 
+const handleKeyDown = (event) => {
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
+};
   
   return (
     <>
-      
+         <div className='chat-wrapper'>
     <div className='logo'>
     <img src={logo} alt="Logo" height="70vh" />
       </div>
       <center>
-        <div className='chat-wrapper'>
+     
          
 <div className='chat'> 
 
@@ -246,37 +206,38 @@ useEffect(()=>{
   </div>
 ))}
  {/* <h1>iam here</h1> */}
-{/* <div className='that-extrabit'></div> */}
- <span className="banana"ref={banana}></span> 
+<div className='that-extrabit'></div>
+
 </div> 
 
-</div>
+ 
 {/* <p className='xpara'>No New messages</p> */}
 <div className='send-msg'>
-      <input className='msg-feild'
-      ref ={focus_type}
-        value={newMessage}
-        placeholder="Type a message"
-        onChange={e => setNewMessage(e.target.value)}
-        onKeyDown={(event) => {
-          if (event.key === 'Enter') {
-            sendMessage();
-          }
-        }}
-      />
-      <button className='send' onClick={sendMessage} >
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA3UlEQVR4nO3WMWpCQRRG4Q9MYxkhha4ikMI9CJbpFFK5CKtsIWV6K9tsIKIpXIEoaJlCsLOzMAgvYCEhT525jT9MOZwzlzszl1sC84UZuqjkBG+wL9Y8p8D0CPy7VujhLiV4cAKcReD1D3BSgc4/wEkEmiXAVxWonQG+WOABwwvAZwk8Y30FaGmBKhp4QrvYcOjwt6IKEyyxi+qBCup4RAsv6B8JjrHA9oTAKAr8WabU7/hIWeo2viOa65D74oRZr1PoAxL6ZHZyA8O/xUFuYPjos4ka9sZR4+0tUuQHPT4UVVhjZqUAAAAASUVORK5CYII="/>
-        
-        
-        </button>
-        </div>     
+            <span className='msg-feild-wrap'> 
+          <textarea className='msg-feild'
+            ref={focus_type}
+            value={newMessage}
+            rows={1}
+            
+            placeholder="Type a message"
+            onChange={e => setNewMessage(e.target.value)}
+            onKeyDown={handleKeyDown}
+            style={{overflowY: 'hidden',overflowX:'hidden',outline:'none',border:'none',textOverflow: 'ellipsis',whiteSpace: 'nowrap'}}
+           
+          />
+           
+        </span>
+          <button className='send' onClick={sendMessage}>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLElEQVR4nO2WsUoDQRCG10obq3TJzJ7FIYhCmp05TWGK3MyJYApJfAQ738HGF1CwFl/BRvAdtPAhFCxFrDRyB3fESjx1zkB+mG7hG3b/mf2dm6sJQZCNVm+4bApFyg6QdYKkz0hyBpsaG4HluABXJW/AcuVDlhqDtSpgvfWJHkb9/pIpGKsG5CE/16ZByxSMZQOkr0ByGSXpmikYP/vgBoPsOecWDME6XXe1fIA/B5fP8PgtH3iW0W+Ap57hBVjO2zRY/RLeYe12QrYPpEdAegKsF8h6jaz3yPpUs4FiHwDJtqurON5ZXNnajXzQXo0G3zFJh82AQ+H+f3LVnmXciLmwqXHC2VogYrsywfqTAOtvEWyDgNhEH1/OcR72WE7Nwl4upGzdPN7O5f5YH92R4pqmqt7BAAAAAElFTkSuQmCC" alt="send" />
+          </button>
+        </div>  <span className="banana"ref={banana}></span>     
 {/* <br></br><br></br><br></br> */}
        
         
 </center>
 
 
-
+</div>
 
 
     
@@ -287,6 +248,7 @@ useEffect(()=>{
 }
  
 function loccheck(ulat,ulon){
+  const start = performance.now();
   function toRadians(degrees) {
     return degrees * Math.PI / 180;
 }
@@ -336,53 +298,75 @@ if (distance <= radius) {
 if(vdistance <= radius){
   IsInView = 1;
 }
+const end = performance.now();
+const executionTime = end - start;
+console.log('Execution time:', executionTime, 'milliseconds');
 console.log(IsInView,IsInViit);
 //  return IsInView || IsInViit;
 return true;
-
 }
  
  
  
  
 function ChatroomC() {
-
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
-    const [error, setError] = useState(null);
-  
-    const getLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            setLatitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
-            setError(null);
-          },
-          (error) => {
-            setError(error.message);
-          }
-        );
-      } else {
-        setError('Enable Location');
-      }
-    };
-  
-    useEffect(() => {
-      getLocation();
-    }, []);
-  
-    const [within500Meters, setWithin500Meters] = useState(false);
-  
-    useEffect(() => {
-      if (latitude !== null && longitude !== null) {
-        const isWithin500Meters = loccheck(latitude, longitude);
-        setWithin500Meters(isWithin500Meters);
-      }
-    }, [latitude, longitude]);
-      // console.log(latitude,longitude);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [error, setError] = useState(null);
+  const [within500Meters, setWithin500Meters] = useState(false);
   const [user, setUser] = useState(null);
   const [ip, setIP] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [chatroomType, setChatroomType] = useState(null);
+
+  
+  const fetchValue = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const value =  within500Meters ? 'B' : 'C';
+        resolve(value);
+      }, 2000); 
+    });
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const value = await fetchValue();
+        setChatroomType(value);
+      } catch (error) {
+        console.error('Error fetching value:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          setError(null);
+           
+        },
+        (error) => {
+          setError(error.message);
+           
+        }
+      );
+    } else {
+      setError('Enable Location');
+       
+    }
+  };
+
+  useEffect(() => {
+    getLocation();
+  }, []);
 
   const getData = async () => {
     try {
@@ -401,30 +385,60 @@ function ChatroomC() {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
+       
     });
 
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (latitude !== null && longitude !== null) {
+      const isWithin500Meters = loccheck(latitude, longitude);
+      setWithin500Meters(isWithin500Meters);
+    }
+  }, [latitude, longitude]);
+  console.log("heyyyyy" + within500Meters);
+  const renderChatroom = () => {
+    if (user) {
+      if (loading) {
+        return <div className='loader'>
+           <p>Venturing into the realm of anonymity... Where every message holds a mystery.🕵️‍♂️</p>
+          <sapn className='spinner'></sapn></div>;
+      } else {
+        if (within500Meters) {
+              return <Chatroom user={user} ip={ip} />;
+          }
+          else{
+           return <Notinloc/>;
+        }
+      }
+    } else {
+      return <Signintochat setUser={setUser} />;
+    }
+  };
+  
 
   return (
     <>
     <div className="App">
       
       <header className="App-header">
-    
-<section>
-            {within500Meters ? user ? <Chatroom user={user} ip={ip} />: <Signintochat setUser={setUser} />: <Notinloc/>
-    }
-        </section> 
-
-
-         {loccheck(latitude,longitude)} 
-       
-      </header>
-    </div>
+     </header>
      
+          <section>
+          {user ? renderChatroom() : <Signintochat setUser={setUser} />}
+          </section>
+        
+    </div>
+      
+ 
+
+
+
     </>
   );
 }
 
 export default ChatroomC;
+
+
