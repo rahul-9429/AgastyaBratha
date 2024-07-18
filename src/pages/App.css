@@ -1422,6 +1422,7 @@ textarea {
       rgba(52, 81, 102, 0.2),
       rgba(0, 0, 0, 0.8)
     );
+    padding: 0%;
   }
   .about1 {
     background: linear-gradient(
