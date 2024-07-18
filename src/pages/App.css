@@ -198,6 +198,7 @@ nav {
   justify-content: center;
   display: flex;
   width: 100%;
+
   /* background-color: #203c4e; */
   /* background-color: #000000; */
 }
@@ -227,6 +228,7 @@ nav {
 }
 
 .msg-feild:focus {
+  width: 100%;
   border: 3px solid #0c2536;
 }
 .send {
@@ -236,7 +238,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-items: center;
+
   background-color: transparent;
 }
 .message {
@@ -337,6 +339,7 @@ nav {
   flex-direction: column;
   justify-content: end;
   overflow-y: auto;
+  gap: 0.5rem;
 }
 /* .chat-wrapper{
 display: grid;

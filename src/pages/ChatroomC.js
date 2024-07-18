@@ -36,7 +36,7 @@ const firebaseConfig = {
   storageBucket: "es-project-7d0c1.appspot.com",
   messagingSenderId: "790953467909",
   appId: "1:790953467909:web:3585a505f6f442e455fc6c",
-  measurementId: "G-WQEDPJVKC9"
+  measurementId: "G-WQEDPJVKC9",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -221,7 +221,9 @@ function Chatroom({ user, ip }) {
       <div className="outer">
         {/* ------------------top area --------------------------------*/}
         <div className="logo">
-         <Link to={'/'}><img src={logo} alt="Logo" height="70vh" /></Link>
+          <Link to={"/"}>
+            <img src={logo} alt="Logo" height="70vh" />
+          </Link>
         </div>
         {/* -------------------chat area_----------------- */}
         <div className="chat">
@@ -266,20 +268,15 @@ function Chatroom({ user, ip }) {
               }}
             />
           </span>
-          <button className="send" onClick={sendMessage}>
-            {/* <img
+          <button
+            style={{ cursor: "pointer" }}
+            className="send"
+            onClick={sendMessage}
+          >
+            <img
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLElEQVR4nO2WsUoDQRCG10obq3TJzJ7FIYhCmp05TWGK3MyJYApJfAQ738HGF1CwFl/BRvAdtPAhFCxFrDRyB3fESjx1zkB+mG7hG3b/mf2dm6sJQZCNVm+4bApFyg6QdYKkz0hyBpsaG4HluABXJW/AcuVDlhqDtSpgvfWJHkb9/pIpGKsG5CE/16ZByxSMZQOkr0ByGSXpmikYP/vgBoPsOecWDME6XXe1fIA/B5fP8PgtH3iW0W+Ap57hBVjO2zRY/RLeYe12QrYPpEdAegKsF8h6jaz3yPpUs4FiHwDJtqurON5ZXNnajXzQXo0G3zFJh82AQ+H+f3LVnmXciLmwqXHC2VogYrsywfqTAOtvEWyDgNhEH1/OcR72WE7Nwl4upGzdPN7O5f5YH92R4pqmqt7BAAAAAElFTkSuQmCC"
               alt="send"
-            /> */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="40px"
-              viewBox="0 -960 960 960"
-              width="40px"
-              fill="#0c2536"
-            >
-              <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
-            </svg>
+            />
           </button>
         </div>{" "}
         <span className="banana" ref={banana}></span>
