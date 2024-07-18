@@ -110,7 +110,7 @@ function Vserver() {
             </Link>
           </div>
           <div className="card ">
-            <span className="anno-head ahp1">
+            <span className="anno-head ahp2 ">
               #<u>Exclusive</u>
             </span>
             <div className="anno-bg">
