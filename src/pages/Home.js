@@ -152,14 +152,14 @@ function Home() {
           </span>
         </div>
       </section>
-      <h1 className="type-eff abt-nf">
+      <h1 className="type-eff abt-nf ">
         AgastyaBratha <br />
         Know what it means?
       </h1>
       <span className="Aga-name-exp">
         <span className="aga-mean-jagu">
           <span className="aga-mean-jagu1">
-            <b>
+            
               <i>
                 He who has no name or place is called{" "}
                 <span style={{ color: "#345163" }}>
@@ -171,7 +171,7 @@ function Home() {
                 Ramayanam. This is the first sarga of Ramayana) Valmiki said
                 this.
               </i>
-            </b>
+
           </span>
           <span className="aga-mean-jagu2">
             <i>
@@ -217,14 +217,14 @@ function Home() {
           AgastyaBratha <br />
           For Communities
         </span>
-        <p style={{ textAlign: "center", marginTop: "5px" }}>
+        <p style={{ textAlign: "", marginTop: "" }}>
           Get a Community Chatroom for your own community tailored according to
           your needs
           <br /> Your just few taps away!
         </p>
 
         <a href="https://forms.gle/cux8RAsiemGaeexW7">
-          <button class="button butn-vs">
+        <center> <button className="button butn-vs">
             Get Quote
             <svg
               fill="currentColor"
@@ -238,7 +238,7 @@ function Home() {
                 fill-rule="evenodd"
               ></path>
             </svg>
-          </button>
+          </button></center>
         </a>
         {/* <div className='aga-com com-p2'></div> 
         <div className='aga-com com-p1'> </div>
