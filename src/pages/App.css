@@ -8,6 +8,9 @@
 * {
   user-select: none;
 }
+body{
+
+}
 img {
   width: auto;
 }
@@ -1146,6 +1149,7 @@ textarea {
   display: flex;
   width: 80%;
   flex-direction: row;
+  gap: 10rem;
   justify-content: space-between;
   align-items: center;
   text-align: center;
@@ -1172,6 +1176,7 @@ textarea {
   .aga-mean-jagu {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
   }
   .aga-mean-jagu1 {
     width: 100%;
