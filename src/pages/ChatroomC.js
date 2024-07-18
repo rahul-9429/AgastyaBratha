@@ -217,13 +217,13 @@ function Chatroom({ user, ip }) {
 
   return (
     <>
-      <div className="w-screen h-screen flex flex-col">
+      <div className="outer">
         {/* ------------------top area --------------------------------*/}
         <div className="logo">
           <img src={logo} alt="Logo" height="70vh" />
         </div>
         {/* -------------------chat area_----------------- */}
-        <div className="chat w-[90%] m-auto flex flex-1 flex-col justify-center items-center overflow-y-auto">
+        <div className="chat">
           {decryptedMessages.map((msg) => (
             <div
               key={msg.id}
@@ -239,15 +239,13 @@ function Chatroom({ user, ip }) {
                 {msg.data.username}
               </div>
               {msg.decryptedText}
-              <span className="msgtimestamp flex flex-col justify-end ml-2">
-                {msg.data.times}
-              </span>
+              <span className="msgtimestamp ">{msg.data.times}</span>
             </div>
-          ))}
+          ))}{" "}
         </div>
-        {/* <p className='xpara'>No New messages</p> */}
+        {/* <p className='xpara'>No New messages</p>
         {/* ---------------------------type area--------------------------------- */}
-        <div className="send-msg">
+        <div className="send-msg ">
           <span className="msg-feild-wrap">
             <textarea
               className="msg-feild"
@@ -268,14 +266,22 @@ function Chatroom({ user, ip }) {
             />
           </span>
           <button className="send" onClick={sendMessage}>
-            <img
+            {/* <img
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLElEQVR4nO2WsUoDQRCG10obq3TJzJ7FIYhCmp05TWGK3MyJYApJfAQ738HGF1CwFl/BRvAdtPAhFCxFrDRyB3fESjx1zkB+mG7hG3b/mf2dm6sJQZCNVm+4bApFyg6QdYKkz0hyBpsaG4HluABXJW/AcuVDlhqDtSpgvfWJHkb9/pIpGKsG5CE/16ZByxSMZQOkr0ByGSXpmikYP/vgBoPsOecWDME6XXe1fIA/B5fP8PgtH3iW0W+Ap57hBVjO2zRY/RLeYe12QrYPpEdAegKsF8h6jaz3yPpUs4FiHwDJtqurON5ZXNnajXzQXo0G3zFJh82AQ+H+f3LVnmXciLmwqXHC2VogYrsywfqTAOtvEWyDgNhEH1/OcR72WE7Nwl4upGzdPN7O5f5YH92R4pqmqt7BAAAAAElFTkSuQmCC"
               alt="send"
-            />
+            /> */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#0c2536"
+            >
+              <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
+            </svg>
           </button>
         </div>{" "}
-        {/* <span className="banana" ref={banana}></span> */}
-        {/* <br></br><br></br><br></br> */}
+        <span className="banana" ref={banana}></span>
       </div>
     </>
   );
