@@ -56,7 +56,7 @@ function Vserver() {
           </Link>
         </header>
         <div className="vserver">
-          <div className="card card1">
+          <div className="card ">
             <h1 className="anno-head ahp1">
               #<u>Announcements</u>
             </h1>
@@ -110,10 +110,10 @@ function Vserver() {
             </Link>
           </div>
           <div className="card ">
-            <span className="anno-head">
+            <span className="anno-head ahp1">
               #<u>Exclusive</u>
             </span>
-            <div className="c-j">
+            <div className="anno-bg">
               <div className="create-join">
                 <Createroom />
                 <Joinroom />
