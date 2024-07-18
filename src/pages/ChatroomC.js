@@ -29,13 +29,14 @@ import CryptoJS from "crypto-js";
 import Notinloc from "./NotinlocComponent.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDwD3jIRBd40BY9gizvY7K-oH1upMYGjcA",
-  authDomain: "agastya-bratha.firebaseapp.com",
-  projectId: "agastya-bratha",
-  storageBucket: "agastya-bratha.appspot.com",
-  messagingSenderId: "976233712729",
-  appId: "1:976233712729:web:99fcf7458e87e264257548",
-  measurementId: "G-SR2D0HZDXS",
+  apiKey: "AIzaSyB0LvKUgugXh3BwqjVrREcwlGgEplSemRU",
+  authDomain: "es-project-7d0c1.firebaseapp.com",
+  databaseURL: "https://es-project-7d0c1-default-rtdb.firebaseio.com",
+  projectId: "es-project-7d0c1",
+  storageBucket: "es-project-7d0c1.appspot.com",
+  messagingSenderId: "790953467909",
+  appId: "1:790953467909:web:3585a505f6f442e455fc6c",
+  measurementId: "G-WQEDPJVKC9"
 };
 
 const app = initializeApp(firebaseConfig);
