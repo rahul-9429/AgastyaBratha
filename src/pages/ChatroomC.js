@@ -28,7 +28,7 @@ import { startOfToday, subDays } from "date-fns";
 import CryptoJS from "crypto-js";
 import Notinloc from "./NotinlocComponent.js";
 import { getAnalytics } from "firebase/analytics";
-import Filter from "bad-words";
+var Filter = require('bad-words');
 
 
 
