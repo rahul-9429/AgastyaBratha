@@ -28,7 +28,7 @@ import { startOfToday, subDays } from "date-fns";
 import CryptoJS from "crypto-js";
 import Notinloc from "./NotinlocComponent.js";
 import { getAnalytics } from "firebase/analytics";
-// var Filter = require('bad-words');
+var Filter = require('bad-words');
 
 
 
@@ -187,7 +187,7 @@ function Chatroom({ user, ip }) {
   const minutes = now.getMinutes();
   const ampm = hours >= 12 ? "PM" : "AM";
   const formattedHours = hours % 12 || 12;
-// const filter = new Filter();
+const filter = new Filter();
 
 
   const currentTime = `${formattedHours}:${
@@ -208,9 +208,9 @@ function Chatroom({ user, ip }) {
         sendMessage();
       }
     };  
-    // const cleanM = filter.clean(newMessage); 
-    // const encrypted = CryptoJS.AES.encrypt(cleanM, secretKey).toString();
-    const encrypted = CryptoJS.AES.encrypt(newMessage, secretKey).toString();
+    const cleanM = filter.clean(newMessage); 
+    const encrypted = CryptoJS.AES.encrypt(cleanM, secretKey).toString();
+    // const encrypted = CryptoJS.AES.encrypt(newMessage, secretKey).toString();
     await addDoc(collection(db, "messages"), {
       uid: user.uid,
       ip_address: ip,
