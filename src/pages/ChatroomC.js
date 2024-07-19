@@ -28,6 +28,7 @@ import { startOfToday, subDays } from "date-fns";
 import CryptoJS from "crypto-js";
 import Notinloc from "./NotinlocComponent.js";
 import { getAnalytics } from "firebase/analytics";
+import Filter from "bad-words";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB0LvKUgugXh3BwqjVrREcwlGgEplSemRU",
@@ -39,6 +40,7 @@ const firebaseConfig = {
   appId: "1:790953467909:web:3585a505f6f442e455fc6c",
   measurementId: "G-WQEDPJVKC9",
 };
+
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -139,8 +141,10 @@ function Chatroom({ user, ip }) {
   const banana = useRef();
   const focus_type = useRef(null);
 
+
   useEffect(() => {
     const decryptMessages = () => {
+
       if (messages.length > 0) {
         const decryptedMsgs = messages.map((msg) => {
           try {
@@ -181,6 +185,7 @@ function Chatroom({ user, ip }) {
   const minutes = now.getMinutes();
   const ampm = hours >= 12 ? "PM" : "AM";
   const formattedHours = hours % 12 || 12;
+  const filter = new Filter();
 
   const currentTime = `${formattedHours}:${
     minutes < 10 ? "0" : ""
@@ -194,12 +199,14 @@ function Chatroom({ user, ip }) {
       console.log("Message not sent.");
       return;
     }
+
     const handleKeyDown = (event) => {
       if (event.key === "Enter") {
         sendMessage();
       }
     };
-    const encrypted = CryptoJS.AES.encrypt(newMessage, secretKey).toString();
+    const cleanM = filter.clean(newMessage); 
+    const encrypted = CryptoJS.AES.encrypt(cleanM, secretKey).toString();
     await addDoc(collection(db, "messages"), {
       uid: user.uid,
       ip_address: ip,
@@ -245,11 +252,13 @@ function Chatroom({ user, ip }) {
                 }`}
               >
                 {msg.data.username}
+              
               </div>
-              {msg.decryptedText}
+               {msg.decryptedText} 
+             
               <span className="msgtimestamp ">{msg.data.times}</span>
             </div>
-          ))}{" "}
+          ))}
         </div>
         {/* <p className='xpara'>No New messages</p>
         {/* ---------------------------type area--------------------------------- */}
