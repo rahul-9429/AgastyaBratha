@@ -27,6 +27,7 @@ import axios from "axios";
 import { startOfToday, subDays } from "date-fns";
 import CryptoJS from "crypto-js";
 import Notinloc from "./NotinlocComponent.js";
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB0LvKUgugXh3BwqjVrREcwlGgEplSemRU",
@@ -41,6 +42,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const analytics = getAnalytics(app);
 
 function Signintochat({ setUser }) {
   const [isChecked, setIsChecked] = useState(false);

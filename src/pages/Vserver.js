@@ -56,37 +56,27 @@ function Vserver() {
           </Link>
         </header>
         <div className="vserver">
-          <div className="card ">
-            <h1 className="anno-head ahp1">
-              #<u>Announcements</u>
-            </h1>
-            <div className="anno-bg">
-              {announcements.length > 0 ? (
-                announcements.map((announcement) => {
-                  const showUser = lastUser !== announcement.user_id;
-                  lastUser = announcement.user_id;
-
-                  return (
-                    <div key={announcement.id} className="wel-msg wel-x">
-                      {showUser && (
-                        <b>
-                          <div>{announcement.userdis}</div>
-                        </b>
-                      )}
-                      <div>{announcement.text}</div>
-                      <span className="msgtimestamp">{announcement.time}</span>
-                    </div>
-                  );
-                })
-              ) : (
-                <div>
-                  <b>
-                    <i>Loading</i>
-                  </b>
-                </div>
-              )}
+        <div className="card card1">
+          <h1 className="anno-head ahp1">#<u>Announcements</u></h1>
+          <div className="anno-bg">
+          {announcements.length > 0 ? (
+        announcements.map(announcement => {
+          const showUser = lastUser !== announcement.user_id;
+          lastUser = announcement.user_id;
+          
+          return (
+            <div key={announcement.id} className="wel-msg wel-x">
+              {showUser && <b><div>{announcement.userdis}</div></b>}
+              <div>{announcement.text}</div>
+              <span className='msgtimestamp'>{announcement.time}</span>
             </div>
+          );
+        })
+      ) : (
+        <div><b><i>Loading</i></b></div>
+      )}
           </div>
+        </div>
           <div className="card vig">
             <span className="anno-head">
               #<u>Vignan VIPS</u>

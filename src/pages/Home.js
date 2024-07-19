@@ -25,11 +25,7 @@ function TypingEffect() {
         <br />
         <span className="n0-fade">Anonymously</span>
       </h1>{" "}
-      <p>
-        currently chatroom was under deployment. We will be back soon
-        <br />
-        Updated on 4:20 PM IST
-      </p>
+      
     </>
   );
 }
@@ -259,11 +255,14 @@ function Home() {
               </a>
               <Link to="/blogs"> Blogs </Link>
               <Link to="/chat"> Chat </Link>
+              <Link t0="/Team">Our team</Link>
               <Link to="/vserver">Private Rooms</Link>
               <a href="">Buy me Coffee!</a>
             </div>
 
-            <div className="sub-div top-nav">
+            <div className="sub-div top-nav"><a href="https://docs.google.com/forms/d/e/1FAIpQLSc3dl9MZjo0lp-kD5tgifWKHjwo6CYr2D0hueZt08wHcwwfjQ/viewform?usp=sf_link">
+                Report Bug
+              </a>
               <a href="https://github.com/rahul-9429/AgastyaBratha">
                 For Developers{" "}
               </a>
@@ -272,9 +271,7 @@ function Home() {
                 For Communities
               </a>
               <Link to="/term&conditions">Privacy Policy</Link>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3dl9MZjo0lp-kD5tgifWKHjwo6CYr2D0hueZt08wHcwwfjQ/viewform?usp=sf_link">
-                Report Bug
-              </a>
+              
               <a href="mailto:project.suppourt.rahul@gmail.com?subject=Help%20reg%20Agastyabratha&body=describe%20your%20issue%20attach%20relevant%20screenshots">
                 {" "}
                 Contact Suppourt
