@@ -30,6 +30,8 @@ import Notinloc from "./NotinlocComponent.js";
 import { getAnalytics } from "firebase/analytics";
 import Filter from "bad-words";
 
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyB0LvKUgugXh3BwqjVrREcwlGgEplSemRU",
   authDomain: "es-project-7d0c1.firebaseapp.com",
@@ -138,7 +140,7 @@ function Chatroom({ user, ip }) {
   const [newMessage, setNewMessage] = useState("");
   const [decryptedMessages, setDecryptedMessages] = useState([]);
   const secretKey = "rahulsaivjy9420";
-  const banana = useRef();
+
   const focus_type = useRef(null);
 
 
@@ -185,7 +187,8 @@ function Chatroom({ user, ip }) {
   const minutes = now.getMinutes();
   const ampm = hours >= 12 ? "PM" : "AM";
   const formattedHours = hours % 12 || 12;
-  const filter = new Filter();
+const filter = new Filter();
+
 
   const currentTime = `${formattedHours}:${
     minutes < 10 ? "0" : ""
@@ -204,7 +207,7 @@ function Chatroom({ user, ip }) {
       if (event.key === "Enter") {
         sendMessage();
       }
-    };
+    };  
     const cleanM = filter.clean(newMessage); 
     const encrypted = CryptoJS.AES.encrypt(cleanM, secretKey).toString();
     await addDoc(collection(db, "messages"), {
@@ -216,7 +219,10 @@ function Chatroom({ user, ip }) {
     });
 
     setNewMessage("");
-    banana.current.scrollIntoView({ behavior: "smooth", block: "end" });
+
+
+
+    // banana.current.scrollIntoView({ behavior: "smooth", block: "end" });
   };
 
   useEffect(() => {
@@ -227,6 +233,13 @@ function Chatroom({ user, ip }) {
       sendMessage();
     }
   };
+  const newRef = useRef(null);
+  useEffect(() => {
+    const div = newRef.current;
+    if (div) {
+      div.scrollTop = div.scrollHeight;
+    }
+}, [decryptedMessages]);
   
   return (
     <>
@@ -238,7 +251,7 @@ function Chatroom({ user, ip }) {
           </Link>
         </div>
         {/* -------------------chat area_----------------- */}
-        <div className="chat">
+        <div ref={newRef} className="chat">
           {decryptedMessages.map((msg) => (
             <div
               key={msg.id}
@@ -293,7 +306,7 @@ function Chatroom({ user, ip }) {
             />
           </button>
         </div>{" "}
-        <span className="banana" ref={banana}></span>
+{/* <span className="banana" ref={banana}></span> */}
       </div>
     </>
   );
