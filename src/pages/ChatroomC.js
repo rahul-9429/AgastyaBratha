@@ -68,62 +68,65 @@ function Signintochat({ setUser }) {
 
   return (
     <>
-      <div className="homepgbg ">
-        <header>
-          <img src={logo} alt="Logo" className="aga-logo" />
-        </header>
+      {" "}
+      <div className="whole">
+        <div className="homepgbg ">
+          <header>
+            <img src={logo} alt="Logo" className="aga-logo" />
+          </header>
 
-        <div className="homepg">
-          <div className="starry-img">
-            <p className="starry-text">Let's</p>
-            <div className="thunder">
-              {isChecked && (
-                <img
-                  src={light}
-                  alt="lighting-effect"
-                  className={isChecked ? "thunder-img blink" : "thunder-img"}
-                  id="thunder-img"
-                  style={{
-                    clipPath: "circle(45px at center)",
-                    transform: "rotate(-40deg)",
-                  }}
-                ></img>
-              )}
+          <div className="homepg">
+            <div className="starry-img">
+              <p className="starry-text">Let's</p>
+              <div className="thunder">
+                {isChecked && (
+                  <img
+                    src={light}
+                    alt="lighting-effect"
+                    className={isChecked ? "thunder-img blink" : "thunder-img"}
+                    id="thunder-img"
+                    style={{
+                      clipPath: "circle(45px at center)",
+                      transform: "rotate(-40deg)",
+                    }}
+                  ></img>
+                )}
+              </div>
+              <img src={starryimg} alt="starry" className="starry-img" />
+
+              <p className="starry-text">Chat</p>
             </div>
-            <img src={starryimg} alt="starry" className="starry-img" />
-
-            <p className="starry-text">Chat</p>
+            <p className="starry-text-mobile">Let's Chat </p>
+            <p style={{ marginBottom: 0, textAlign: "center" }}>
+              Protect your privacy! Please do not share any sensitive personal
+              information.
+              <br /> You are responsible for your data.
+            </p>
+            <div className="agree-div">
+              <input
+                type="checkbox"
+                id="agree"
+                className="styled-checkbox"
+                checked={isChecked}
+                onChange={thunderAnimation}
+              />
+              <span for="agree">
+                {" "}
+                I agree all{" "}
+                <Link to="/term&conditions">
+                  <u>Terms & Conditions.</u>
+                </Link>
+              </span>
+            </div>
+            <button className="chat-anony" onClick={signInAnonymously}></button>
           </div>
-          <p className="starry-text-mobile">Let's Chat </p>
-          <p style={{ marginBottom: 0, textAlign: "center" }}>
-            Protect your privacy! Please do not share any sensitive personal
-            information.
-            <br /> You are responsible for your data.
-          </p>
-          <div className="agree-div">
-            <input
-              type="checkbox"
-              id="agree"
-              className="styled-checkbox"
-              checked={isChecked}
-              onChange={thunderAnimation}
-            />
-            <span for="agree">
-              {" "}
-              I agree all{" "}
-              <Link to="/term&conditions">
-                <u>Terms & Conditions.</u>
-              </Link>
-            </span>
-          </div>
-          <button className="chat-anony" onClick={signInAnonymously}></button>
         </div>
+        {showAlert && !isChecked && (
+          <div className="check-alert">
+            <p>Please agree to the terms and conditions.</p>
+          </div>
+        )}
       </div>
-      {showAlert && !isChecked && (
-        <div className="check-alert">
-          <p>Please agree to the terms and conditions.</p>
-        </div>
-      )}
     </>
   );
 }
