@@ -330,7 +330,7 @@ nav {
   overflow-y: auto;
   gap: 0.5rem;
   flex-grow: 1;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .send-msg {
@@ -453,6 +453,7 @@ body {
     rgba(0, 0, 0, 0.8)
   );
   width: 100%;
+  overflow: auto;
 }
 .type-eff {
   margin-top: 10%;
