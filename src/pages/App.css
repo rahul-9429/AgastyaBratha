@@ -98,6 +98,12 @@ html {
   text-shadow: 0 0 15px #2e6779;
 }
 
+.notinloccss{
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+
+}
 .banana {
   height: 6rem;
   width: 100%;

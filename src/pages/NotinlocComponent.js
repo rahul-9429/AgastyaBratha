@@ -7,6 +7,7 @@ import logo from '../images/logoo.png';
 function NotinlocComponent(){
     return(
       <>
+      <div className='notinloccss'>
       <img src={logo} alt="Logo" className='aga-logo ' />
       <section className='notinloc'>
           <img src={geeky} alt="geekgod_modernart" className='geekgod'/> 
@@ -30,6 +31,7 @@ function NotinlocComponent(){
           </sapn>
          
       </section>
+      </div>
      </>
     );
   }
