@@ -220,7 +220,7 @@ function Chatroom({ user, ip }) {
       sendMessage();
     }
   };
-
+  
   return (
     <>
       <div className="outer">

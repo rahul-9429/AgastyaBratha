@@ -337,6 +337,10 @@ nav {
   gap: 0.5rem;
   flex-grow: 1;
   margin-bottom: 4rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 
 .send-msg {
@@ -347,9 +351,10 @@ nav {
   align-items: center;
   justify-content: center;
 }
-/* .chat-wrapper{
-display: grid;
-} */
+.chat-wrapper{
+width: 100vw;
+height: 100vh;
+}
 /* chat-anony button */
 .chat-anony {
   width: 140px;
@@ -769,9 +774,12 @@ nav p {
   padding: 5px 5px 0px 5px;
   border-radius: 10px;
   margin-top: 6px;
+  width: fit-content;
+
 }
 .wel-x {
   border: 2px solid rgb(123, 123, 123) !important ;
+  width: 85%;
 }
 .wel-msg p {
   margin: 0.3rem;

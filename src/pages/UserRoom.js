@@ -146,8 +146,8 @@ const UserRoom = () => {
 
   return (
     <>
-      <div className='chat-wrapper'>
-        <div className='logo'>
+      <div className="outer">
+        <div className="logo">
           <img src={logo} alt="Logo" height="65vh" />
           <button className='share-btn' onClick={handleShareRoom}>
             <img src={sharebt} alt="Share" />
