@@ -20,11 +20,10 @@ function Vserver() {
   const [prevuser, setPrevuser] = useState("");
   useEffect(() => {
     if (announcements.length > 0) {
-      setPrevuser(announcements[announcements.length - 1].userdis);
-      console.log(prevuser);
+      const latestUser = announcements[announcements.length - 1].userdis;
+      setPrevuser(latestUser);
     }
   }, [announcements]);
-
   useEffect(() => {
     const q = query(
       collection(db, "announcements"),

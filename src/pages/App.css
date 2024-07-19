@@ -184,12 +184,25 @@ nav {
   align-items: center;
   justify-content: center;
 }
+.logo img{
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
 .logo {
-  background-color: black;
+  /* background-color: black; */
+  
+  background: radial-gradient(
+    circle,
+    rgba(52, 81, 102, 0.2) 0%, /* Start color at the center */
+    rgba(0, 0, 0, 0) 70%,       /* Transparent black */
+    rgba(0, 0, 0, 0.8) 100%      /* Solid black at the outer edge */
+);
+
   /* backdrop-filter: blur(5px); */
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -1159,7 +1172,7 @@ a {
 }
 textarea {
   resize: none;
-
+  width: 100%;
   margin: 0;
 }
 .vser-foot {
