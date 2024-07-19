@@ -735,6 +735,10 @@ nav p {
   display: flex;
   flex-direction: column;
 }
+.acc{
+  overflow-y: auto;
+
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -761,7 +765,7 @@ nav p {
 .wel-msg {
   background-color: rgb(29, 54, 70, 0.5);
   border: 2px solid rgb(29, 54, 70);
-  z-index: -1;
+  /* z-index: -1; */
   padding: 5px 5px 0px 5px;
   border-radius: 10px;
   margin-top: 6px;

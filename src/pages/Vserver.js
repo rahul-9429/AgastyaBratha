@@ -58,7 +58,7 @@ function Vserver() {
         <div className="vserver">
         <div className="card card1">
           <h1 className="anno-head ahp1">#<u>Announcements</u></h1>
-          <div className="anno-bg">
+          <div className="anno-bg acc">
           {announcements.length > 0 ? (
         announcements.map(announcement => {
           const showUser = lastUser !== announcement.user_id;
