@@ -1,5 +1,5 @@
 const admin = require('firebase-admin');
-const serviceAccount = require('../AgastyaBratha/es-project-7d0c1-firebase-adminsdk-efvny-3f0c9b4463.json');  
+const serviceAccount = require('../path-to-your-serviceAccountKey.json');
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -12,24 +12,33 @@ const db = admin.database();
 const ref = db.ref('viewers');
 
 module.exports = async (req, res) => {
-  if (req.method === 'POST') {
-    const { action } = req.body;
-    
-    const snapshot = await ref.once('value');
-    let count = snapshot.val() || 0;
-    console.log('Current Count:', count);
-    if (action === 'increment') {
-      count += 1;
-    } else if (action === 'decrement') {
-      count -= 1;
+  try {
+    if (req.method === 'POST') {
+      const { action } = req.body;
+      console.log('Request Action:', action);
+
+      const snapshot = await ref.once('value');
+      let count = snapshot.val() || 0;
+      console.log('Current Count:', count);
+
+      if (action === 'increment') {
+        count += 1;
+      } else if (action === 'decrement') {
+        count -= 1;
+      }
+
+      await ref.set(count);
+      console.log('Updated Count:', count);
+
+      res.status(200).json({ count });
+    } else {
+      const snapshot = await ref.once('value');
+      const count = snapshot.val() || 0;
+      console.log('Current Count on GET:', count);
+      res.status(200).json({ count });
     }
-
-    await ref.set(count);
-
-    res.status(200).json({ count });
-  } else {
-    const snapshot = await ref.once('value');
-    const count = snapshot.val() || 0;
-    res.status(200).json({ count });
+  } catch (error) {
+    console.error('Error in API function:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };

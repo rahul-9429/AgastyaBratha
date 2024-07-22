@@ -50,9 +50,9 @@ const LiveViewers = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Live Viewer Count: <span id="viewerCount">{viewerCount}</span></h1>
-    </div>
+     
+        <span id="viewerCount">{viewerCount}</span> 
+     
   );
 };
 
