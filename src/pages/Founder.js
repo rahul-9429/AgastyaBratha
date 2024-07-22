@@ -81,7 +81,8 @@ const Founder = () =>{
 <span className="admins-wrap">
   
 <div className="founder-img">
-            <a href='https://www.linkedin.com/in/das-pavan-kumar-686279165/'><img src={pavan} alt='Das pavan kumar' className=""/> </a>
+            {/* <a href='https://www.linkedin.com/in/das-pavan-kumar-686279165/'> </a>*/}
+            <img src="https://media.licdn.com/dms/image/D5603AQE2vs1TxzXYgQ/profile-displayphoto-shrink_400_400/0/1718452335554?e=1726704000&v=beta&t=k2FeNFlYPkkqKkty99uTNOWFWCOBizhmu86RwW3sbQQ" alt='Das pavan kumar' className=""/> 
              </div>
              <a href='https://www.linkedin.com/in/das-pavan-kumar-686279165/'><h2 className="type-eff abt-nf admin-text">Pavan Kumar</h2></a>
              <p style={{marginTop:'0',color:'#ffff',textAlign:'center'}}><b>VIIT Admin <i>AgastyaBratha</i></b></p>

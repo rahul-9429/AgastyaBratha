@@ -28,6 +28,7 @@ import { startOfToday, subDays } from "date-fns";
 import CryptoJS from "crypto-js";
 import Notinloc from "./NotinlocComponent.js";
 import { getAnalytics } from "firebase/analytics";
+import Livev from './LiveViewrs.js';
 // var Filter = require('bad-words');
 
 
@@ -249,7 +250,7 @@ function Chatroom({ user, ip }) {
         <div className="logo">
           <Link to={"/"}>
             <img src={logo} alt="Logo" height="70vh" />
-          </Link>
+          </Link><Livev/>
         </div>
         {/* -------------------chat area_----------------- */}
         <div ref={newRef} className="chat">
@@ -369,7 +370,8 @@ function loccheck(ulat, ulon) {
   const executionTime = end - start;
   console.log("Execution time:", executionTime, "milliseconds");
   console.log(IsInView, IsInViit);
-   return IsInView || IsInViit;
+  //  return IsInView || IsInViit;
+  return true;
    
 }
 

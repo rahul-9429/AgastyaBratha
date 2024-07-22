@@ -342,6 +342,8 @@ nav {
 }
 
 .chat {
+  /* min-height: 100vh; */
+  height: max-content;
   width: 90%;
   margin: 0 auto auto;
   display: flex;
