@@ -82,7 +82,7 @@ const Founder = () =>{
   
 <div className="founder-img">
             {/* <a href='https://www.linkedin.com/in/das-pavan-kumar-686279165/'> </a>*/}
-            <img src="https://media.licdn.com/dms/image/D5603AQE2vs1TxzXYgQ/profile-displayphoto-shrink_400_400/0/1718452335554?e=1726704000&v=beta&t=k2FeNFlYPkkqKkty99uTNOWFWCOBizhmu86RwW3sbQQ" alt='Das pavan kumar' className=""/> 
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQFtZtDb5rrA-Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1720901495501?e=1729728000&v=beta&t=4nzU1easbHgTJ2A7IuREKtX9ZcaD4DCf7UE0j7xGyg0" alt='Das pavan kumar' className=""/> 
              </div>
              <a href='https://www.linkedin.com/in/das-pavan-kumar-686279165/'><h2 className="type-eff abt-nf admin-text">Pavan Kumar</h2></a>
              <p style={{marginTop:'0',color:'#ffff',textAlign:'center'}}><b>VIIT Admin <i>AgastyaBratha</i></b></p>

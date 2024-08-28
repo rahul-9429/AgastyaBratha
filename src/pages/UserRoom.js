@@ -148,9 +148,9 @@ const UserRoom = () => {
     <>
       <div className="outer">
         <div className="logo">
-          <img src={logo} alt="Logo" height="65vh" />
+          <img src={logo} alt="Logo" height="65vh" className="logo-aga-updated"/>
           <button className='share-btn' onClick={handleShareRoom}>
-            <img src={sharebt} alt="Share" />
+            <img src={sharebt} alt="Share" className="share-btn"/>
           </button>
         </div>
 

@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 * {
-  user-select: none;
+  /* background-color: #040404; */
 }
 body {
   background: linear-gradient(
@@ -14,6 +14,7 @@ body {
     rgba(52, 81, 102, 0.2),
     rgba(0, 0, 0, 0.8)
   );
+  user-select: none;
 }
 img {
   width: auto;
@@ -187,11 +188,11 @@ nav {
 .logo img{
   align-items: center;
   display: flex;
-  justify-content: space-around;
+  
 }
 .logo {
   /* background-color: black; */
-  
+  /* justify-content: space-between; */
   background: radial-gradient(
     circle,
     rgba(52, 81, 102, 0.2) 0%, /* Start color at the center */
@@ -202,7 +203,7 @@ nav {
   /* backdrop-filter: blur(5px); */
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -247,18 +248,19 @@ nav {
 .message {
   display: flex;
   flex-direction: column;
-  user-select: text;
+  /* user-select: text; */
   text-align: left;
   margin-bottom: 2px;
   padding: 5px;
   border-radius: 8px;
   min-width: 9%;
   max-width: 70%; /* Adjust as needed */
-}
+  user-select: text !important;
+  }
 .justify-start {
   align-self: flex-start;
   /* background-color: #2272ce; */
-  background: linear-gradient(145deg, #01adaa, #005260);
+  background: linear-gradient(145deg, #1a5554, #005260);
   max-width: 45%;
   color: whitesmoke;
   overflow-wrap: break-word;
@@ -267,7 +269,7 @@ nav {
   /* background-color: #2272ce;  */
   /*#497c9c*/
   /* background: linear-gradient(#2272ce, #0d4381); */
-  background: linear-gradient(145deg, #01adaa, #005260);
+  background: linear-gradient(145deg, #1a5554, #005260);
   align-self: flex-end;
   max-width: 45%;
   color: whitesmoke;
@@ -341,6 +343,19 @@ nav {
   flex-direction: column;
 }
 
+.hiddenn{
+  opacity: 0;
+  filter: blur(5px);
+    /* transform: translate(-100%);   */
+    transition:all 1s;
+   }
+.showw{
+  opacity: 1;
+  filter: blur(0px);
+  /* transform: translateX(0); */
+}
+
+
 .chat {
   /* min-height: 100vh; */
   height: max-content;
@@ -349,13 +364,14 @@ nav {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  gap: 0.5rem;
+  gap: 0.1rem;
   flex-grow: 1;
   margin-bottom: 4rem;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
 }
 
 .send-msg {
@@ -687,7 +703,10 @@ nav p {
   justify-content: space-around;
 }
 
-/* Add this CSS */
+.logo .share-btn{
+  right: 0;
+  position: relative;
+}
 .responsive_nav.show_links {
   display: flex;
 }

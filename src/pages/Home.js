@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
 import light from "../images/agalogoedited.png";
 import van from "../images/van1.jpg";
-
+import Vibcomm from './Vibcomm';
 function TypingEffect() {
   const [textIndex, setTextIndex] = useState(0);
-  const words = ["Chat ", "Express "]; // Words to display
-  const typingSpeed = 3000; // Adjust typing speed here
+  const words = ["Chat ", "Express "]; 
+  const typingSpeed = 3000;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -48,6 +48,29 @@ function Home() {
     }
   };
 
+  
+  
+  //intersection observer :)
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('showw');
+        } else {
+          entry.target.classList.remove('showw');
+        }
+      });
+    });
+
+    const hiddenElements = document.querySelectorAll('.hiddenn');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      hiddenElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
+
   return (
     <>
       <header className="aa-header">
@@ -83,7 +106,7 @@ function Home() {
         <TypingEffect />
 
         <Link to="/vserver">
-          <button class="button butn-vs">
+          <button class="button butn-vs ">
             Server Vignan
             <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
               <path
@@ -95,7 +118,7 @@ function Home() {
           </button>
         </Link>
       </section>
-      <section className="About-sec" id="about">
+      <section className="About-sec hiddenn" id="about">
         <div className="about-wrap">
           <span className="about1">
             <span className="type-eff abt-nf">About us</span>
@@ -148,11 +171,16 @@ function Home() {
           </span>
         </div>
       </section>
-      <h1 className="type-eff abt-nf ">
+      <br></br><br/>
+
+      <Vibcomm/>
+
+
+      <h1 className="type-eff abt-nf hiddenn">
         AgastyaBratha <br />
         Know what it means?
       </h1>
-      <span className="Aga-name-exp">
+      <span className="Aga-name-exp hiddenn">
         <span className="aga-mean-jagu">
           <span className="aga-mean-jagu1">
             
@@ -186,7 +214,7 @@ function Home() {
         </span>
       </span>{" "}
       <center style={{ marginTop: "1rem" }}>
-        <span>
+        <span className="hiddenn">
           <a href="https://te.quora.com/%E0%B0%85%E0%B0%97%E0%B0%B8%E0%B1%8D%E0%B0%A4%E0%B1%8D%E0%B0%AF-%E0%B0%AD%E0%B1%8D%E0%B0%B0%E0%B0%BE%E0%B0%A4-%E0%B0%85%E0%B0%A8%E0%B1%8D%E0%B0%A8">
             <b>
               <u>View References</u>
@@ -208,7 +236,7 @@ function Home() {
           </a>
         </span>
       </center>
-      <section className="aga-community" id="community">
+      <section className="aga-community hiddenn" id="community">
         <span className="type-eff abt-nf">
           AgastyaBratha <br />
           For Communities
@@ -333,6 +361,8 @@ function Home() {
             </a>
           </span>
         </span>
+        {/* <center>Version 9.11  </center> */}
+        
       </footer>
     </>
   );
