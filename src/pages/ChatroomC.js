@@ -144,7 +144,9 @@ function Chatroom({ user, ip }) {
   const secretKey = "rahulsaivjy9420";
 
   const focus_type = useRef(null);
-  const activeUsers = useWebSocket('ws://localhost:8080');
+  const wsUrl = process.env.NODE_ENV === 'production' ? 'wss://agastya-bratha.vercel.app/' : 'ws://localhost:8080';
+const activeUsers = useWebSocket(wsUrl);
+
 
   useEffect(() => {
     const decryptMessages = () => {
