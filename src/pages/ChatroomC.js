@@ -10,6 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import useWebSocket from './useWebSocket';
 import {
   getAuth,
   onAuthStateChanged,
@@ -28,7 +29,7 @@ import { startOfToday, subDays } from "date-fns";
 import CryptoJS from "crypto-js";
 import Notinloc from "./NotinlocComponent.js";
 import { getAnalytics } from "firebase/analytics";
-import Livev from './LiveViewrs.js';
+// import Livev from './server.js';
 // var Filter = require('bad-words');
 
 
@@ -77,7 +78,7 @@ function Signintochat({ setUser }) {
       <div className="whole">
         <div className="homepgbg ">
           <header>
-            <img src={logo} alt="Logo" className="aga-logo" />
+            <img src={logo} alt="Logo" className="agaa-logo" />
           </header>
 
           <div className="homepg">
@@ -143,7 +144,7 @@ function Chatroom({ user, ip }) {
   const secretKey = "rahulsaivjy9420";
 
   const focus_type = useRef(null);
-
+  const activeUsers = useWebSocket('ws://localhost:8080');
 
   useEffect(() => {
     const decryptMessages = () => {
@@ -249,8 +250,8 @@ function Chatroom({ user, ip }) {
         {/* ------------------top area --------------------------------*/}
         <div className="logo">
           <Link to={"/"}>
-            <img src={logo} alt="Logo" height="70vh" />
-          </Link><Livev/>
+            <img src={logo} alt="Logo" className="agaa-logo" />
+          </Link> {activeUsers}
         </div>
         {/* -------------------chat area_----------------- */}
         <div ref={newRef} className="chat">
@@ -339,8 +340,11 @@ function loccheck(ulat, ulon) {
 
   const center_point = { lat: 17.710825, lng: 83.165222 };
   const vcenter_point = { lat: 17.717297, lng: 83.177239 };
+  const vucenter_point = { lat: 16.233347, lng: 80.549813 };
   const test_point = { lat: ulat, lng: ulon };
 
+
+  //viit coordinates
   const lat1 = center_point["lat"];
   const lon1 = center_point["lng"];
   const lat2 = test_point["lat"];
@@ -352,25 +356,37 @@ function loccheck(ulat, ulon) {
   const vlat2 = test_point["lat"];
   const vlon2 = test_point["lng"];
   const radius = 0.3; // in kilometers
+  
+  // vu coordinates
+  const vulat1 = vucenter_point["lat"];
+  const vulon1 = vucenter_point["lng"];
+  const vulat2 = test_point["lat"];
+  const vulon2 = test_point["lng"];
+  const radius1 = 0.5; 
 
   const distance = haversine(lon1, lat1, lon2, lat2);
   const vdistance = haversine(vlon1, vlat1, vlon2, vlat2);
+  const vudistance = haversine(vulon1,vulat1,vulon2,vulat2);
   // console.log('Distance (km): ', distance);
   // console.log("view distance",vdistance);
 
   var IsInViit = 0;
   var IsInView = 0;
+  var IsInVu = 0;
   if (distance <= radius) {
     IsInViit = 1;
   }
   if (vdistance <= radius) {
     IsInView = 1;
   }
+  if(vudistance<=radius1){
+    IsInVu = 1;
+  }
   const end = performance.now();
   const executionTime = end - start;
   console.log("Execution time:", executionTime, "milliseconds");
-  console.log(IsInView, IsInViit);
-  //  return IsInView || IsInViit;
+  console.log(IsInView, IsInViit, IsInVu);
+  //  return IsInView || IsInViit || IsInVu;
   return true;
    
 }

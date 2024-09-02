@@ -40,6 +40,7 @@ function Vserver() {
     return () => unsubscribe();
   }, []);
   let lastUser = prevuser;
+  let lastDatee;
   return (
     <>
       <section className="vser-bg">
@@ -60,15 +61,19 @@ function Vserver() {
           <div className="anno-bg acc">
           {announcements.length > 0 ? (
         announcements.map(announcement => {
-          const showUser = lastUser !== announcement.user_id;
+          const showUser = lastUser !== announcement.user_id || lastDatee !== announcement.datee;
           lastUser = announcement.user_id;
           
+          const ShowDatee = lastDatee !== announcement.datee;
+          lastDatee = announcement.datee;
           return (
+            <>
+            {/* <div className="showdate">{ <span className="bd-sc">{ShowDatee && announcement.datee}</span>}</div> */}
             <div key={announcement.id} className="wel-msg wel-x">
-              {showUser && <b><div>{announcement.userdis}</div></b>}
+            {showUser && <b><div>{announcement.userdis}</div></b>}
               <div>{announcement.text}</div>
-              <span className='msgtimestamp'>{announcement.time}</span>
-            </div>
+              <span className='msgtimestamp'>{ShowDatee && announcement.datee} {announcement.time}</span>
+            </div></>
           );
         })
       ) : (

@@ -89,7 +89,16 @@ html {
     transform: rotate(360deg);
   }
 }
-
+.add-space-count{
+  min-width: 200px  ;
+}
+.vibcomm{
+  /* gap: 1px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .starry-text {
   font-family: "Butterfly Kids", cursive;
   font-weight: 800;
@@ -98,12 +107,24 @@ html {
   padding: 10%;
   text-shadow: 0 0 15px #2e6779;
 }
-
+.showdate{
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  font-size: small;
+ 
+}
+.bd-sc{
+  border:2px solid pink;
+  width: max-content;
+  /* margin: auto; */
+  padding: 1px;
+}
 .notinloccss{
   width: 100vw;
   height: 100vh;
   overflow-y: scroll;
-
+ background-color: #000000;
 }
 .banana { 
 
@@ -193,8 +214,8 @@ nav {
 .logo {
   /* background-color: black; */
   /* justify-content: space-between; */
-  background: radial-gradient(
-    circle,
+  background: linear-gradient(
+    35deg,
     rgba(52, 81, 102, 0.2) 0%, /* Start color at the center */
     rgba(0, 0, 0, 0) 70%,       /* Transparent black */
     rgba(0, 0, 0, 0.8) 100%      /* Solid black at the outer edge */
@@ -235,6 +256,9 @@ nav {
   width: 100%;
   border: 3px solid #0c2536;
 }
+.agaa-logo{
+  height: 4.5rem;
+}
 .send {
   margin-left: 0.5rem;
   border-radius: 50%;
@@ -242,8 +266,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: transparent;
+  padding: .4rem;
 }
 .message {
   display: flex;
@@ -522,6 +546,27 @@ body {
   );
   background-clip: text;
   color: transparent;
+}.ani-eff{
+  color: transparent;
+             background: linear-gradient(
+    55deg,
+    rgba(23, 54, 70, 1) 20%,
+    rgba(52, 81, 99, 1) 40%,
+    rgba(85, 114, 133, 1) 60%,
+    rgba(128, 157, 177, 1) 80%,
+    rgba(128, 157, 177, 1) 90%
+  );
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: neonGradientMove 5s ease infinite; 
+}
+@keyframes neonGradientMove {
+  0% { background-position: 50% 0%; }
+25% { background-position: 100% 50%; }
+50% { background-position: 50% 100%; }
+75% { background-position: 0% 50%; }
+100% { background-position: 50% 0%; }
 }
 .n0-fade {
   -webkit-text-fill-color: transparent;
@@ -599,6 +644,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .aga-logo {
   height: 6rem;
 }
@@ -813,7 +859,7 @@ nav p {
 }
 .wel-x {
   border: 2px solid rgb(123, 123, 123) !important ;
-  width: 85%;
+  width: 95%;
 }
 .wel-msg p {
   margin: 0.3rem;
@@ -1086,11 +1132,11 @@ a {
   color: #c3c0c0;
   width: 100%;
   margin-top: 2rem;
-  background-color: linear-gradient(
+  /* background-color: linear-gradient(
     45deg,
     rgba(52, 81, 102, 0.2),
     rgba(0, 0, 0, 0.8)
-  );
+  ); */
 }
 
 .about-wrap {
@@ -1239,7 +1285,32 @@ textarea {
   margin: auto;
 }
 /* .aga-mean-jaggu  */
+.Why-ab{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.why-ab-p{
+  /* justify-content: center; */
+  text-align: center;
+  max-width: 86%;
+  color: #c3c0c0;
+  font-size: large;
+}
 @media only screen and (max-width: 600px) {
+  body {
+    /* background: linear-gradient(
+      45deg,
+      rgba(52, 81, 102, 0.2),
+      rgba(0, 0, 0, 0.8)
+    ); */
+    background-color: #000000;
+    user-select: none;
+  }
+  .agaa-logo{
+    height: 4rem;
+  }
   .aga-mean-jagu {
     display: flex;
     flex-direction: column;
@@ -1471,19 +1542,19 @@ textarea {
     text-align: center;
   }
   .about-wrap {
-    background: linear-gradient(
+    /* background: linear-gradient(
       45deg,
       rgba(52, 81, 102, 0.2),
       rgba(0, 0, 0, 0.8)
-    );
+    ); */
     padding: 0%;
   }
   .about1 {
-    background: linear-gradient(
+    /* background: linear-gradient(
       45deg,
       rgba(52, 81, 102, 0.2),
       rgba(0, 0, 0, 0.8)
-    );
+    ); */
     width: 100%;
     padding: 2rem;
     text-align: justify;

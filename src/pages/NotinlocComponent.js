@@ -5,6 +5,9 @@ import tape from '../images/tape.jpg';
 import logo from '../images/logoo.png';
 
 function NotinlocComponent(){
+  const style = {
+    backgroundColor: '#ff5733',
+};
     return(
       <>
       <div className='notinloccss'>

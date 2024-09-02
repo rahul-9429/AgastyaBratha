@@ -73,6 +73,7 @@ function Home() {
 
   return (
     <>
+    
       <header className="aa-header">
         <Link to="/">
           <img src={light} className="aga-main" height="70vh" alt="logo"></img>
@@ -88,7 +89,7 @@ function Home() {
             <Link to="/chat"> Chat </Link>
           </div>
           <div className="in_links">
-            <Link to="/blogs"> Blogs </Link>
+            <a href="#ccc"> Contact </a>
           </div>
           <button className="ham-cross nav-btn" onClick={showNavbar}>
             <FaTimes />
@@ -118,6 +119,17 @@ function Home() {
           </button>
         </Link>
       </section>
+
+      
+      <section className="Why-ab hiddenn">
+      <span className="type-eff abt-nf">Why AgastyaBratha?</span> <Vibcomm/>
+      <p className="why-ab-p">Discover the pulse of Vignan's vibrant community with AgastyaBratha, connecting 9+ campuses across Andhra Pradesh and uniting over 9999+ students. Stay in the loop with the latest happenings, events, and opportunities, all while enjoying the freedom to explore and engage anonymously. Whether you're looking to collaborate, learn, or just stay informed, you can do it all without revealing your identity. </p><br/> 
+      
+      <span className="type-eff ani-eff abt-nf">#Stay connected,<br/> #Stay informed, <br/> #Stay in the loop!</span>
+       
+      <br></br><br/>
+      </section>
+
       <section className="About-sec hiddenn" id="about">
         <div className="about-wrap">
           <span className="about1">
@@ -171,9 +183,9 @@ function Home() {
           </span>
         </div>
       </section>
-      <br></br><br/>
+      
 
-      <Vibcomm/>
+     
 
 
       <h1 className="type-eff abt-nf hiddenn">
@@ -271,10 +283,10 @@ function Home() {
       {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1d3646" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,117.3C960,107,1056,149,1152,154.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> */}
       <footer className="home-footer">
         {/* <p className='cmmrk' style={{ paddingTop: '5rem', opacity: '50%', color: 'white', textAlign: 'center' , margin:'0' }}>#Creating My Mark <br />~Rahul_kasimikota</p> */}
-        <h1 className="type-eff abt-nf" style={{ textAlign: "left" }}>
+        <h1 className="type-eff abt-nf" style={{ textAlign: "left",padding:"20px" }}>
           Contact Us
         </h1>
-        <div className="contact-div">
+        <div className="contact-div" id="ccc">
           <span className="jagu">
             <div className="top-nav sub-div">
               <a href="#about" onClick={(e) => handleClick(e, "about")}>
@@ -283,7 +295,7 @@ function Home() {
               </a>
               <Link to="/blogs"> Blogs </Link>
               <Link to="/chat"> Chat </Link>
-              <Link t0="/Team">Our team</Link>
+              <Link to="/Team">Our team</Link>
               <Link to="/vserver">Private Rooms</Link>
               <a href="">Buy me Coffee!</a>
             </div>
@@ -298,6 +310,7 @@ function Home() {
                 {" "}
                 For Communities
               </a>
+              <a href="https://docs.google.com/document/d/1M57eh1_goxaJnUIB6qkAP_m8aPAFMChlrNibvmfbjYM/edit?usp=sharing">Documentation</a>
               <Link to="/term&conditions">Privacy Policy</Link>
               
               <a href="mailto:project.suppourt.rahul@gmail.com?subject=Help%20reg%20Agastyabratha&body=describe%20your%20issue%20attach%20relevant%20screenshots">
