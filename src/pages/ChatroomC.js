@@ -393,7 +393,8 @@ function loccheck(ulat, ulon) {
   const executionTime = end - start;
   console.log("Execution time:", executionTime, "milliseconds");
   console.log(IsInView, IsInViit, IsInVu);
-   return IsInView || IsInViit || IsInVu;
+  //  return IsInView || IsInViit || IsInVu;
+  return true;
 }
 
 function ChatroomC() {

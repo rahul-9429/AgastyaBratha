@@ -6,7 +6,7 @@ const Vibcomm = () => {
     const componentRef = useRef(null); // Reference to the component
 
     const startCounting = () => {
-        setCount(0); // Reset the count to 0 when the component becomes visible
+        setCount(0); 
         setCountt(9429);
         let i = 1;
         let j=9429;
