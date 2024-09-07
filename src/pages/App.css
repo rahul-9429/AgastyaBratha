@@ -259,6 +259,16 @@ nav {
 .agaa-logo{
   height: 4.5rem;
 }
+.x-logo{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: radial-gradient(
+    circle,
+    rgba(52, 81, 102, 0.2) 0%, /* Start color at the center */
+    rgba(0, 0, 0, 0) 70%,       /* Transparent black */
+    rgba(0, 0, 0, 0.8) 100%      /* Solid black at the outer edge */) ;
+}
 .send {
   margin-left: 0.5rem;
   border-radius: 50%;
@@ -284,16 +294,21 @@ nav {
 .justify-start {
   align-self: flex-start;
   /* background-color: #2272ce; */
-  background: linear-gradient(145deg, #1a5554, #005260);
+  /* background: linear-gradient(145deg, #1a5554, #005260); */
   max-width: 45%;
   color: whitesmoke;
   overflow-wrap: break-word;
 }
 .justify-end {
+  
   /* background-color: #2272ce;  */
   /*#497c9c*/
   /* background: linear-gradient(#2272ce, #0d4381); */
-  background: linear-gradient(145deg, #1a5554, #005260);
+  /* background: linear-gradient(145deg, #1a5554, #005260) !important; */
+  /* background: linear-gradient(145deg, #7f833c,#807019) !important; */
+  /* background: linear-gradient(145deg, #4c60a9,#5d85b6) !important; */
+  /* background:linear-gradient(145deg, #904b12, #513209) !important; */
+  background: linear-gradient(145deg, #7d7a2f, #686c1d) !important; 
   align-self: flex-end;
   max-width: 45%;
   color: whitesmoke;
@@ -383,7 +398,7 @@ nav {
 .chat {
   /* min-height: 100vh; */
   height: max-content;
-  width: 90%;
+  width: 80%;
   margin: 0 auto auto;
   display: flex;
   flex-direction: column;

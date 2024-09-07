@@ -141,16 +141,29 @@ function Chatroom({ user, ip }) {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [decryptedMessages, setDecryptedMessages] = useState([]);
-  const secretKey = "rahulsaivjy9420";
 
+  const secretKey = "rahulsaivjy9420";
   const focus_type = useRef(null);
   const wsUrl = process.env.NODE_ENV === 'production' ? 'wss://agastya-bratha.vercel.app/' : 'ws://localhost:8080';
-const activeUsers = useWebSocket(wsUrl);
+  const activeUsers = useWebSocket(wsUrl);
+  
+  const colorPalette = [
+// "  linear-gradient(145deg, #1a5554, #005260)",
+  "linear-gradient(145deg, #dcd655, #c6ca74)", 
+  // "linear-gradient(145deg, #3c7ba6, #193852)", 
+  // "linear-gradient(145deg, #79a49e, #3876a6)", 
+  ];
 
+  let lastUid = null;
+  let currentColor = colorPalette[0]; // Start with the first color
+
+  const getNextColor = () => {
+    const nextColorIndex = (colorPalette.indexOf(currentColor) + 1) % colorPalette.length;
+    return colorPalette[nextColorIndex];
+  };
 
   useEffect(() => {
     const decryptMessages = () => {
-
       if (messages.length > 0) {
         const decryptedMsgs = messages.map((msg) => {
           try {
@@ -186,17 +199,15 @@ const activeUsers = useWebSocket(wsUrl);
     });
     return unsubscribe;
   }, [db]);
+
   const now = new Date();
   const hours = now.getHours();
   const minutes = now.getMinutes();
   const ampm = hours >= 12 ? "PM" : "AM";
   const formattedHours = hours % 12 || 12;
-// const filter = new Filter();
 
+  const currentTime = `${formattedHours}:${minutes < 10 ? "0" : ""}${minutes} ${ampm}`;
 
-  const currentTime = `${formattedHours}:${
-    minutes < 10 ? "0" : ""
-  }${minutes} ${ampm}`;
   const sendMessage = async () => {
     if (!user) {
       console.log("User not logged in. Message not sent.");
@@ -207,14 +218,7 @@ const activeUsers = useWebSocket(wsUrl);
       return;
     }
 
-    const handleKeyDown = (event) => {
-      if (event.key === "Enter") {
-        sendMessage();
-      }
-    };  
-    // const cleanM = filter.clean(newMessage); 
-    // const encrypted = CryptoJS.AES.encrypt(cleanM, secretKey).toString();
-     const encrypted = CryptoJS.AES.encrypt(newMessage, secretKey).toString();
+    const encrypted = CryptoJS.AES.encrypt(newMessage, secretKey).toString();
     await addDoc(collection(db, "messages"), {
       uid: user.uid,
       ip_address: ip,
@@ -224,63 +228,64 @@ const activeUsers = useWebSocket(wsUrl);
     });
 
     setNewMessage("");
-
-
-
-    // banana.current.scrollIntoView({ behavior: "smooth", block: "end" });
   };
 
   useEffect(() => {
     focus_type.current.focus();
   }, [focus_type]);
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       sendMessage();
     }
   };
+
   const newRef = useRef(null);
   useEffect(() => {
     const div = newRef.current;
     if (div) {
       div.scrollTop = div.scrollHeight;
     }
-}, [decryptedMessages]);
-  
+  }, [decryptedMessages]);
+
   return (
     <>
       <div className="outer">
-        {/* ------------------top area --------------------------------*/}
-        <div className="logo">
+        <div className="logo x-logo">
           <Link to={"/"}>
             <img src={logo} alt="Logo" className="agaa-logo" />
-          </Link> {activeUsers}
+          </Link>
         </div>
-        {/* -------------------chat area_----------------- */}
         <div ref={newRef} className="chat">
-          {decryptedMessages.map((msg) => (
-            <div
-              key={msg.id}
-              className={`message flex ${
-                msg.data.uid === user.uid ? "justify-end" : "justify-start"
-              }`}
-            >
+          {decryptedMessages.map((msg) => {
+            // Check if the uid has changed
+            if (msg.data.uid !== lastUid) {
+              currentColor = getNextColor();
+            }
+            lastUid = msg.data.uid;
+
+            return (
               <div
-                className={`display_username ${
-                  msg.data.uid === user.uid ? "no" : "yes"
+                key={msg.id}
+                className={`message flex ${
+                  msg.data.uid === user.uid ? "justify-end" : "justify-start"
                 }`}
+                style={{ background: currentColor }}
               >
-                {msg.data.username}
-              
+                <div
+                  className={`display_username ${
+                    msg.data.uid === user.uid ? "no" : "yes"
+                  }`}
+                >
+                  {msg.data.username}
+                </div>
+                {msg.decryptedText}
+                <span className="msgtimestamp ">{msg.data.times}</span>
               </div>
-               {msg.decryptedText} 
-             
-              <span className="msgtimestamp ">{msg.data.times}</span>
-            </div>
-          ))}
+            );
+          })}
         </div>
-        {/* <p className='xpara'>No New messages</p>
-        {/* ---------------------------type area--------------------------------- */}
-        <div className="send-msg ">
+        <div className="send-msg">
           <span className="msg-feild-wrap">
             <textarea
               className="msg-feild"
@@ -311,11 +316,11 @@ const activeUsers = useWebSocket(wsUrl);
             />
           </button>
         </div>
-{/* <span className="banana" ref={banana}></span> */}
       </div>
     </>
   );
 }
+
 
 function loccheck(ulat, ulon) {
   const start = performance.now();

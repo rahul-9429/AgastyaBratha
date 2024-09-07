@@ -8,13 +8,13 @@ const Vibcomm = () => {
     const startCounting = () => {
         setCount(0); // Reset the count to 0 when the component becomes visible
         setCountt(9429);
-        let i = 0;
+        let i = 1;
         let j=9429;
         const interval = setInterval(() => {
             i++;
             setCount((prevCount) => prevCount + 1);
 
-            if (i >= 9) {
+            if (i > 8) {
                 clearInterval(interval); 
             }
         }, 100); 
@@ -55,7 +55,7 @@ const Vibcomm = () => {
     return (
         <div ref={componentRef} className="vibcomm"> 
             <h1 className=" abt-nf ani-eff" style={{marginBottom:0, color:"#c3c0c0"}}>{count}+ campuses </h1>
-            <h1 className="abt-nf ani-eff" style={{marginTop:0,marginBottom:0, textAlign:"center",color:"#c3c0c0"}}><span className="add-space-count">{countt}</span>+ Nameless explorers</h1> 
+            <h1 className="abt-nf ani-eff" style={{marginTop:0,marginBottom:0, textAlign:"center",color:"#c3c0c0"}}><span className="add-space-count">{countt}</span>+ Anonymous explorers</h1> 
            
         </div>
     );

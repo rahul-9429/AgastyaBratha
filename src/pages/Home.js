@@ -89,7 +89,8 @@ function Home() {
             <Link to="/chat"> Chat </Link>
           </div>
           <div className="in_links">
-            <a href="#ccc"> Contact </a>
+            {/* <a href="#ccc"> Contact </a> */}
+             <a href="#contact" onClick={(e) => handleClick(e, "community")}>Contact Us</a>
           </div>
           <button className="ham-cross nav-btn" onClick={showNavbar}>
             <FaTimes />
@@ -123,7 +124,7 @@ function Home() {
       
       <section className="Why-ab hiddenn">
       <span className="type-eff abt-nf">Why AgastyaBratha?</span> <Vibcomm/>
-      <p className="why-ab-p">Discover the pulse of Vignan's vibrant community with AgastyaBratha, connecting 9+ campuses across Andhra Pradesh and uniting over 9999+ students. Stay in the loop with the latest happenings, events, and opportunities, all while enjoying the freedom to explore and engage anonymously. Whether you're looking to collaborate, learn, or just stay informed, you can do it all without revealing your identity. </p><br/> 
+      <p className="why-ab-p">Discover the pulse of Vignan's vibrant community with AgastyaBratha, connecting 8+ campuses across Andhra Pradesh and uniting over 9999+ Anonymous explorers. Stay in the loop with the latest happenings, events, and opportunities, all while enjoying the freedom to explore and engage anonymously. Whether you're looking to collaborate, learn, or just stay informed, you can do it all without revealing your identity. </p><br/> 
       
       <span className="type-eff ani-eff abt-nf">#Stay connected,<br/> #Stay informed, <br/> #Stay in the loop!</span>
        
@@ -281,10 +282,10 @@ function Home() {
         */}
       </section>
       {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1d3646" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,117.3C960,107,1056,149,1152,154.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> */}
-      <footer className="home-footer">
+      <footer className="home-footer"> 
         {/* <p className='cmmrk' style={{ paddingTop: '5rem', opacity: '50%', color: 'white', textAlign: 'center' , margin:'0' }}>#Creating My Mark <br />~Rahul_kasimikota</p> */}
         <h1 className="type-eff abt-nf" style={{ textAlign: "left",padding:"20px" }}>
-          Contact Us
+        <a href="#contact" onClick={(e) => handleClick(e, "community")}>Contact Us</a>
         </h1>
         <div className="contact-div" id="ccc">
           <span className="jagu">
