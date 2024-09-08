@@ -148,10 +148,27 @@ function Chatroom({ user, ip }) {
   const activeUsers = useWebSocket(wsUrl);
   
   const colorPalette = [
-// "  linear-gradient(145deg, #1a5554, #005260)",
-  "linear-gradient(145deg, #dcd655, #c6ca74)", 
-  // "linear-gradient(145deg, #3c7ba6, #193852)", 
-  // "linear-gradient(145deg, #79a49e, #3876a6)", 
+  "linear-gradient(145deg, #1a5554, #005260)",
+  "linear-gradient(145deg, #7d7a2f, #686c1d)", 
+  "linear-gradient(145deg, #3c7ba6, #193852)", 
+  "linear-gradient(145deg, #79a49e, #3876a6)", 
+  // "linear-gradient(145deg, #79a49e, #686c1d)",
+
+ "linear-gradient(145deg, #1a3b41, #0e272b)",
+ "linear-gradient(145deg, #1a2238, #0d1523)",
+ "linear-gradient(145deg, #4b5b21, #2f3915)",
+ "linear-gradient(145deg, #3a3a3a, #1e1e1e)",
+ "linear-gradient(145deg, #1c2e44, #0d1a2e)",
+ "linear-gradient(145deg, #4a5335, #2c301f)",
+ "linear-gradient(145deg, #2a3e5f, #1b2a3d)",
+ "linear-gradient(145deg, #736b31, #504d22)"
+
+  // "linear-gradient(145deg, #1a2238, #735f1f)",
+  // "linear-gradient(145deg, #2b3a55, #695c1a)",
+  // "linear-gradient(145deg, #23374d, #525822)",
+  // "linear-gradient(145deg, #2b496e, #726b34)",
+  // "linear-gradient(145deg, #0f1a2e, #8b734d)",
+  // "linear-gradient(145deg, #1c2e44, #606b31)"
   ];
 
   let lastUid = null;
