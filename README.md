@@ -22,3 +22,4 @@ The project is inspired by *Starry Night* by Vincent van Gogh and the concept of
 <a href="https://docs.google.com/document/d/1M57eh1_goxaJnUIB6qkAP_m8aPAFMChlrNibvmfbjYM"> Documentation </a>
 
 ## File Structure
+Src -> Pages
