@@ -284,8 +284,8 @@ function Home() {
       {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1d3646" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,117.3C960,107,1056,149,1152,154.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> */}
       <footer className="home-footer"> 
         {/* <p className='cmmrk' style={{ paddingTop: '5rem', opacity: '50%', color: 'white', textAlign: 'center' , margin:'0' }}>#Creating My Mark <br />~Rahul_kasimikota</p> */}
-        <h1 className="type-eff abt-nf" style={{ textAlign: "left",padding:"20px" }}>
-        <a href="#contact" onClick={(e) => handleClick(e, "community")}>Contact Us</a>
+        <h1 className="type-eff abt-nf" style={{ textAlign: "left",padding:"20px" , color:"#345163"}}>
+        <a href="#contact" style={{  color:"#345163"}} onClick={(e) => handleClick(e, "community") }>Contact Us</a>
         </h1>
         <div className="contact-div" id="ccc">
           <span className="jagu">
