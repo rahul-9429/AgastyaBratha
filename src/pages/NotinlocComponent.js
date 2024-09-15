@@ -26,7 +26,7 @@ function NotinlocComponent(){
               <li>Kindly enable location and try again</li>
               <li>Wait until the page is completely loaded</li>
               <li>Check your internet connection</li>
-              <li>Didn't work? <a href="mailto:project.suppourt.rahul@gmail.com&subject=Hrlp%20agastya-bratha"> Contact support</a></li>
+              <li>Didn't work? <a href="mailto:project.suppourt.rahul@gmail.com&subject=Hrlp%20agastya-bratha"><u>Contact support</u></a></li>
              </ul>
               </p>
               <h4><u>We never save your location.It is only used for authentication.</u></h4>
