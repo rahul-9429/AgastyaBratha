@@ -15,7 +15,7 @@ function NotinlocComponent(){
       <section className='notinloc'>
           <img src={geeky} alt="geekgod_modernart" className='geekgod'/> 
           <sapn className="notinloc-msg">
-            <h2>Opps! Looks like your currently not in college primises <small>(VIIT or VIEW)</small></h2>
+            <h2>Oops! Looks like You're currently not in college primises <small>(VIIT or VIEW or VU)</small></h2>
             <img src={geek} alt="geekgod_modernart" className='geekgod_mobile'/> 
             <p>We deeply value the privacy and security of our users.To protect the community we only allow acess to users who are in specified location</p>
             
@@ -26,7 +26,7 @@ function NotinlocComponent(){
               <li>Kindly enable location and try again</li>
               <li>Wait until the page is completely loaded</li>
               <li>Check your internet connection</li>
-              <li>Didn't work? <a href="mailto:project.suppourt.rahul@gmail.com&subject=Hrlp%20agastya-bratha"> Contact suppourt</a></li>
+              <li>Didn't work? <a href="mailto:project.suppourt.rahul@gmail.com&subject=Hrlp%20agastya-bratha"> Contact support</a></li>
              </ul>
               </p>
               <h4><u>We never save your location.It is only used for authentication.</u></h4>
