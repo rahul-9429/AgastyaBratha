@@ -21,5 +21,3 @@ Agastya-Bratha is a community-based chatroom that operates without any login or 
 The project is inspired by *Starry Night* by Vincent van Gogh and the concept of "He who has no name or place" from the Ramayana.
 <a href="https://docs.google.com/document/d/1M57eh1_goxaJnUIB6qkAP_m8aPAFMChlrNibvmfbjYM"> Documentation </a>
 
-## File Structure
-Src -> Pages
