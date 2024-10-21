@@ -35,7 +35,7 @@ import { getAnalytics } from "firebase/analytics";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB0LvKUgugXh3BwqjVrREcwlGgEplSemRU",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY_API_KEY,
   authDomain: "es-project-7d0c1.firebaseapp.com",
   databaseURL: "https://es-project-7d0c1-default-rtdb.firebaseio.com",
   projectId: "es-project-7d0c1",

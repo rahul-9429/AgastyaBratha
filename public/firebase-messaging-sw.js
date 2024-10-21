@@ -1,8 +1,12 @@
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js');
 
+require('dotenv').config();
+
+const apiKey = process.env.API_KEY; 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB0LvKUgugXh3BwqjVrREcwlGgEplSemRU",
+  apiKey: apiKey,
   authDomain: "es-project-7d0c1.firebaseapp.com",
   databaseURL: "https://es-project-7d0c1-default-rtdb.firebaseio.com",
   projectId: "es-project-7d0c1",

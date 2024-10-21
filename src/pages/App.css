@@ -1159,7 +1159,10 @@ a {
     rgba(0, 0, 0, 0.8)
   ); */
 }
+.msb-bg-u-room{
+    background: linear-gradient(145deg, #1a5554, #005260) !important;
 
+}
 .about-wrap {
   display: flex;
   flex-direction: row;

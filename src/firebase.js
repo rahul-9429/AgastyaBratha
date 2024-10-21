@@ -2,8 +2,13 @@
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
+// require('dotenv').config();
+
+// const apiKey = process.env.API_KEY; 
+console.log("API Key:", process.env.REACT_APP_FIREBASE_API_KEY);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB0LvKUgugXh3BwqjVrREcwlGgEplSemRU",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY_API_KEY,
   authDomain: "es-project-7d0c1.firebaseapp.com",
   databaseURL: "https://es-project-7d0c1-default-rtdb.firebaseio.com",
   projectId: "es-project-7d0c1",
@@ -21,7 +26,6 @@ const requestPermissionAndGetToken = async () => {
         const currentToken = await getToken(messaging, { vapidKey: 'YOUR_VAPID_KEY' });
         if (currentToken) {
             console.log('FCM Token:', currentToken);
-            // Send the token to your server and update the UI if necessary
         } else {
             console.log('No registration token available. Request permission to generate one.');
         }

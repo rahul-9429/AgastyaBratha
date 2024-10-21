@@ -114,7 +114,7 @@ const UserRoom = () => {
       localStorage.setItem('username', username);
       setIsUsernameSet(true);
     } else {
-      console.log("Username cannot be empty");
+      alert("Username cannot be empty");
     }
   };
 
@@ -165,7 +165,7 @@ const UserRoom = () => {
               const showUsername = !previousMessage || previousMessage.user_id !== message.user_id;
 
               return (
-                <div key={message.id} className={`message ${message.user_id === user.uid ? 'justify-end' : 'justify-start'}`}>
+                <div key={message.id} className={`message ${message.user_id === user.uid ? 'justify-end msb-bg-u-room' : 'justify-start msb-bg-u-room'}`}>
                   {showUsername && (
                     <div className="user-name">{message.username === username ? "" : message.username}</div>
                   )}
