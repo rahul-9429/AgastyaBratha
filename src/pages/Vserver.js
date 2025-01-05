@@ -27,8 +27,8 @@ function Vserver() {
   useEffect(() => {
     const q = query(
       collection(db, "announcements"),
-      orderBy("timestamp", "asc")
-    ); // Change orderBy to ascending
+      orderBy("timestamp", "desc")
+    ); 
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const announcementsData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
