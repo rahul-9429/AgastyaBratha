@@ -104,7 +104,13 @@ function Home() {
           <FaBars style={{ color: "#1d3646" }} />
         </button>
       </header>
-      <section className="home-section">
+      <div className="background-move-grad-wrap">
+      <div className="background-move-grad">
+      </div>
+      {/* <div className="background-move-grad2"></div> */}
+        </div>
+      <section className="home-section"> 
+
         <TypingEffect />
 
         <Link to="/vserver">
@@ -260,7 +266,7 @@ function Home() {
           <br /> Your just few taps away!
         </p>
 
-        <a href="https://forms.gle/cux8RAsiemGaeexW7">
+        <a href="https://thearambh.in/">
         <center> <button className="button butn-vs">
             Get Quote
             <svg
@@ -376,7 +382,9 @@ function Home() {
           </span>
         </span>
         {/* <center>Version 9.11  </center> */}
-        
+          {/* <div className="poweredBy">
+            powered by ARAMBH
+          </div> */}
       </footer>
     </>
   );
